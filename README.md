@@ -2,6 +2,8 @@
 
 A user-space service that turns an Embrava Blynclight to match your Microsoft Teams presence.
 
+Copyright (C) 2026 Abraham Liebsch. Licensed under the [GNU General Public License v3.0](LICENSE) only.
+
 A Blynclight Standard (`2c0d:000c`) and the other ids in `udev/60-blynclight.rules` are USB HID devices. The kernel's generic HID driver already binds them, and the color is an 8-byte output report. Embrava Connect, the Windows app, sends those same reports. It is not a kernel driver, and this project does not install one.
 
 Teams presence is read from Microsoft Graph (`GET /me/presence`) with a one-time device-code sign-in. The service then polls and updates the light when your status changes.
