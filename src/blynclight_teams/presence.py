@@ -1,9 +1,10 @@
 """Map Microsoft Graph presence to a Blynclight color.
 
-Embrava's published Teams colors are green for available, red for busy or
-on a call, purple for do not disturb, and amber for away. Offline turns
-the light off. Presenting flashes red so it reads differently from a solid
-busy light. Idle availability dims the same color.
+Available is green, a plain busy status is orange, and an active call or
+meeting is red. That keeps scheduled focus time distinct from time on the
+phone. Do not disturb is purple, and away is a darker amber than the busy
+orange. Offline turns the light off. Presenting flashes red. Idle
+availability dims the same color.
 """
 
 from __future__ import annotations
@@ -27,8 +28,9 @@ class LightState:
 GREEN = LightState(0, 255, 0)
 DIM_GREEN = LightState(0, 255, 0, dim=True)
 RED = LightState(255, 0, 0)
-DIM_RED = LightState(255, 0, 0, dim=True)
 FLASH_RED = LightState(255, 0, 0, flash=True)
+ORANGE = LightState(255, 140, 0)
+DIM_ORANGE = LightState(255, 140, 0, dim=True)
 PURPLE = LightState(170, 0, 255)
 AMBER = LightState(255, 96, 0)
 OFF = LightState(0, 0, 0, off=True)
@@ -51,8 +53,8 @@ BY_ACTIVITY: dict[str, LightState] = {
 BY_AVAILABILITY: dict[str, LightState] = {
     "Available": GREEN,
     "AvailableIdle": DIM_GREEN,
-    "Busy": RED,
-    "BusyIdle": DIM_RED,
+    "Busy": ORANGE,
+    "BusyIdle": DIM_ORANGE,
     "DoNotDisturb": PURPLE,
     "Focusing": PURPLE,
     "Away": AMBER,
@@ -68,6 +70,7 @@ BY_AVAILABILITY: dict[str, LightState] = {
 _NAMES = {
     (0, 255, 0): "green",
     (255, 0, 0): "red",
+    (255, 140, 0): "orange",
     (255, 96, 0): "amber",
     (170, 0, 255): "purple",
     (0, 0, 255): "blue",
@@ -120,6 +123,7 @@ def named_state(name: str) -> LightState | None:
         "red": RED,
         "green": GREEN,
         "blue": LightState(0, 0, 255),
+        "orange": ORANGE,
         "amber": AMBER,
         "purple": PURPLE,
         "white": LightState(255, 255, 255),

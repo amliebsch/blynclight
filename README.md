@@ -12,8 +12,9 @@ Teams presence is read from Microsoft Graph (`GET /me/presence`) with a one-time
 | --- | --- |
 | Available | Green |
 | Available, idle | Dim green |
-| Busy, in a call, in a meeting | Red |
-| Busy, idle | Dim red |
+| Busy | Orange |
+| Busy, idle | Dim orange |
+| In a call, in a meeting | Red |
 | Presenting | Flashing red |
 | Do not disturb, focusing | Purple |
 | Away, be right back | Amber |

@@ -14,7 +14,7 @@ class AppearanceTests(unittest.TestCase):
         cases = {
             ("Available", "Available"): "green",
             ("Available", "OutOfOffice"): "purple",
-            ("Busy", "Busy"): "red",
+            ("Busy", "Busy"): "orange",
             ("Busy", "InACall"): "red",
             ("Busy", "InAMeeting"): "red",
             ("Busy", "InAConferenceCall"): "red",
@@ -26,7 +26,7 @@ class AppearanceTests(unittest.TestCase):
             ("Offline", "Offline"): "off",
             ("OutOfOffice", "OutOfOffice"): "purple",
             ("AvailableIdle", "Available"): "dim green",
-            ("BusyIdle", "Busy"): "dim red",
+            ("BusyIdle", "Busy"): "dim orange",
             ("AvailableIdle", "Inactive"): "amber",
             ("DoNotDisturb", "Focusing"): "purple",
             ("Focusing", "Focusing"): "purple",
