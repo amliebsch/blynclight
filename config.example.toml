@@ -1,0 +1,6 @@
+# Copy to ~/.config/blynclight-teams/config.toml
+# or run: blynclight-teams login --client-id <application-id> --upn you@company.com
+
+client_id = ""
+tenant = "organizations"
+poll_seconds = 10

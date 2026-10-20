@@ -1,0 +1,22 @@
+# Grant the logged-in user write access to Embrava Blynclight hidraw nodes.
+# Install: sudo install -m 0644 60-blynclight.rules /etc/udev/rules.d/
+# Then: sudo udevadm control --reload && sudo udevadm trigger --subsystem-match=hidraw
+
+# Blynclight 2c0d:0001
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="2c0d", ATTRS{idProduct}=="0001", MODE="0660", TAG+="uaccess"
+# Blynclight Plus 2c0d:0002
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="2c0d", ATTRS{idProduct}=="0002", MODE="0660", TAG+="uaccess"
+# Blynclight Mini 2c0d:0003
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="2c0d", ATTRS{idProduct}=="0003", MODE="0660", TAG+="uaccess"
+# Blynclight Mini 2c0d:000a
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="2c0d", ATTRS{idProduct}=="000a", MODE="0660", TAG+="uaccess"
+# Blynclight 2c0d:000c
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="2c0d", ATTRS{idProduct}=="000c", MODE="0660", TAG+="uaccess"
+# Blynclight Plus 2c0d:0010
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="2c0d", ATTRS{idProduct}=="0010", MODE="0660", TAG+="uaccess"
+# Blynclight 0e53:2516
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="0e53", ATTRS{idProduct}=="2516", MODE="0660", TAG+="uaccess"
+# Blynclight Mini 0e53:2517
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="0e53", ATTRS{idProduct}=="2517", MODE="0660", TAG+="uaccess"
+# Blynclight Mini 0e53:2519
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="0e53", ATTRS{idProduct}=="2519", MODE="0660", TAG+="uaccess"
