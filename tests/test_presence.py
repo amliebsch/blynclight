@@ -18,7 +18,7 @@ class AppearanceTests(unittest.TestCase):
             ("Busy", "InACall"): "red",
             ("Busy", "InAMeeting"): "red",
             ("Busy", "InAConferenceCall"): "red",
-            ("DoNotDisturb", "DoNotDisturb"): "purple",
+            ("DoNotDisturb", "DoNotDisturb"): "blue",
             ("DoNotDisturb", "Presenting"): "flashing red",
             ("Away", "Away"): "amber",
             ("BeRightBack", "BeRightBack"): "amber",
@@ -28,8 +28,8 @@ class AppearanceTests(unittest.TestCase):
             ("AvailableIdle", "Available"): "dim green",
             ("BusyIdle", "Busy"): "dim orange",
             ("AvailableIdle", "Inactive"): "amber",
-            ("DoNotDisturb", "Focusing"): "purple",
-            ("Focusing", "Focusing"): "purple",
+            ("DoNotDisturb", "Focusing"): "blue",
+            ("Focusing", "Focusing"): "blue",
             ("", ""): "off",
         }
         for (availability, activity), expected in cases.items():

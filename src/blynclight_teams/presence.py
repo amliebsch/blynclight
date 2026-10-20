@@ -2,9 +2,9 @@
 
 Available is green, a plain busy status is orange, and an active call or
 meeting is red. That keeps scheduled focus time distinct from time on the
-phone. Do not disturb is purple, and away is a darker amber than the busy
-orange. Offline turns the light off. Presenting flashes red. Idle
-availability dims the same color.
+phone. Do not disturb and focusing are blue, and away is a darker amber
+than the busy orange. Out of office stays purple. Offline turns the light
+off. Presenting flashes red. Idle availability dims the same color.
 """
 
 from __future__ import annotations
@@ -32,6 +32,7 @@ FLASH_RED = LightState(255, 0, 0, flash=True)
 ORANGE = LightState(255, 140, 0)
 DIM_ORANGE = LightState(255, 140, 0, dim=True)
 PURPLE = LightState(170, 0, 255)
+BLUE = LightState(0, 0, 255)
 AMBER = LightState(255, 96, 0)
 OFF = LightState(0, 0, 0, off=True)
 
@@ -46,8 +47,8 @@ BY_ACTIVITY: dict[str, LightState] = {
     "OutOfOffice": PURPLE,
     "OffWork": OFF,
     "Inactive": AMBER,
-    "Focusing": PURPLE,
-    "UrgentInterruptionsOnly": PURPLE,
+    "Focusing": BLUE,
+    "UrgentInterruptionsOnly": BLUE,
 }
 
 BY_AVAILABILITY: dict[str, LightState] = {
@@ -55,8 +56,8 @@ BY_AVAILABILITY: dict[str, LightState] = {
     "AvailableIdle": DIM_GREEN,
     "Busy": ORANGE,
     "BusyIdle": DIM_ORANGE,
-    "DoNotDisturb": PURPLE,
-    "Focusing": PURPLE,
+    "DoNotDisturb": BLUE,
+    "Focusing": BLUE,
     "Away": AMBER,
     "BeRightBack": AMBER,
     "Offline": OFF,
@@ -122,7 +123,7 @@ def named_state(name: str) -> LightState | None:
         "off": OFF,
         "red": RED,
         "green": GREEN,
-        "blue": LightState(0, 0, 255),
+        "blue": BLUE,
         "orange": ORANGE,
         "amber": AMBER,
         "purple": PURPLE,
